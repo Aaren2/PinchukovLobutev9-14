@@ -22,15 +22,15 @@
             <TextBlock Text="Ведите паспорт" FontSize="14" Margin="0 20 0 0"/>
             <TextBox x:Name="TbPassport" FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Ведите ваш день рождения" FontSize="14" Margin="0 20 0 0"/>
-            <DatePicker FontSize="14" Margin="0 5 0 0"/>
+            <DatePicker x:Name="DPB" FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Ваш пол" FontSize="14" Margin="0 20 0 0"/>
-            <ComboBox FontSize="14" Margin="0 5 0 0"/>
+            <ComboBox x:Name="CmbGender"  FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Ведите логин" FontSize="14" Margin="0 20 0 0"/>
             <TextBox x:Name="TbLogin" FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Ведите пароль" FontSize="14" Margin="0 20 0 0"/>
-            <PasswordBox x:Name="PbPassword1" FontSize="14" Margin="0 5 0 0"/>
+            <PasswordBox x:Name="TbPassword1" FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Подтвердите пароль" FontSize="14" Margin="0 20 0 0"/>
-            <PasswordBox x:Name="PbPassword2" FontSize="14" Margin="0 5 0 0"/>
+            <PasswordBox x:Name="TbPassword2" FontSize="14" Margin="0 5 0 0"/>
             <TextBlock Text="Код сотрудника" FontSize="14" Margin="0 20 0 0"/>
             <PasswordBox x:Name="PbCode" FontSize="14" Margin="0 5 0 0"/>
             <Button x:Name="BtnLogin" Content="Войти" FontSize="14" Margin="0 20 0 0"/>
