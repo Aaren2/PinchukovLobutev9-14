@@ -16,4 +16,4 @@
 <b>Рабочая регистрация </b>
 ![image](https://user-images.githubusercontent.com/114148739/218982588-b9bd50c4-b802-4578-8f0f-dcad65f6b03c.png)
 ![image](https://user-images.githubusercontent.com/114148739/218981763-32534c4e-36d3-4b9d-8545-ebdfd2e7863b.png)
-![image](https://user-images.githubusercontent.com/114148739/218981799-0e01c40a-11c0-47f1-8271-b4b256093eb8.png)
+![image](https://user-images.githubusercontent.com/114148739/218982702-0307fd88-8d48-405d-944c-070b97c6614e.png)
