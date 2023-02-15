@@ -14,6 +14,6 @@
 <b>Подключение БД </b>
 ![image](https://user-images.githubusercontent.com/114148739/218981422-096b7847-d958-4594-a360-d1b527c83d34.png)
 <b>Рабочая регистрация </b>
-![image](https://user-images.githubusercontent.com/114148739/218981717-c3fad3e8-ee37-445e-9e95-a88155eb7d5c.png)
+![image](https://user-images.githubusercontent.com/114148739/218982588-b9bd50c4-b802-4578-8f0f-dcad65f6b03c.png)
 ![image](https://user-images.githubusercontent.com/114148739/218981763-32534c4e-36d3-4b9d-8545-ebdfd2e7863b.png)
 ![image](https://user-images.githubusercontent.com/114148739/218981799-0e01c40a-11c0-47f1-8271-b4b256093eb8.png)
