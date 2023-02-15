@@ -1,8 +1,12 @@
 # PinchukovLobutev9-14
 <h1> Лобутев 3исп9-14 Кофейня</h1>
+
 <b>Структура файлов</b>
+
 ![image](https://user-images.githubusercontent.com/114148739/218980949-492869d1-ec15-4da1-bccd-379ee66ccc41.png)
+
 <b>Структура БД </b>
+
 ![image](https://user-images.githubusercontent.com/114148739/218981126-d6e1a8f6-83b7-4f98-9ae3-a776f9951fda.png)
 <b>Афторизация и регистрация</b>
 ![image](https://user-images.githubusercontent.com/114148739/218981286-2cd2e5f2-34cb-4c77-bace-f18b7a6090fa.png)
