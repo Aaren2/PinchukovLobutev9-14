@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Coffe3914Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Coffe3914Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="ID" />
@@ -63,6 +63,7 @@
           <Property Name="NameOfProduct" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ImageProduct" Type="nvarchar" MaxLength="1024" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -304,7 +305,8 @@
             <End Role="SaleProduct" EntitySet="SaleProduct" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Coffe3914Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -344,13 +346,13 @@
           <Property Name="Phone" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Passport" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateOfBirthday" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="IdGender" Type="Int32" Nullable="false" />
           <Property Name="IdRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Authorization" Relationship="Self.FK_Authorization_Employee" FromRole="Employee" ToRole="Authorization" />
           <NavigationProperty Name="Gender" Relationship="Self.FK_Employee_Gender" FromRole="Employee" ToRole="Gender" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Employee_Role" FromRole="Employee" ToRole="Role" />
           <NavigationProperty Name="Sale" Relationship="Self.FK_Sale_Employee" FromRole="Employee" ToRole="Sale" />
-          <Property Name="DateOfBirthday" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -378,6 +380,7 @@
           <Property Name="NameOfProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ImageProduct" Type="String" MaxLength="1024" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="SaleProduct" Relationship="Self.FK_SaleProduct_Product" FromRole="Product" ToRole="SaleProduct" />
         </EntityType>
         <EntityType Name="Role">
@@ -449,7 +452,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Client1_Gender">
-          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Client1" Type="Self.Client1" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Gender">
@@ -668,7 +671,6 @@
           <EntitySetMapping Name="Employee">
             <EntityTypeMapping TypeName="Coffe3914Model.Employee">
               <MappingFragment StoreEntitySet="Employee">
-                <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -676,6 +678,7 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="DateOfBirthday" ColumnName="DateOfBirthday" />
                 <ScalarProperty Name="IdGender" ColumnName="IdGender" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
               </MappingFragment>
@@ -705,6 +708,7 @@
                 <ScalarProperty Name="NameOfProduct" ColumnName="NameOfProduct" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

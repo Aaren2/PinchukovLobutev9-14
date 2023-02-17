@@ -23,5 +23,12 @@ namespace PinchukovLobutev9_14.Windows
         {
             InitializeComponent();
         }
+
+        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            AddProduct menuWindow = new AddProduct();
+            menuWindow.Show();
+            this.Close();
+        }
     }
 }

@@ -51,7 +51,7 @@ namespace PinchukovLobutev9_14.Windows
         {
             if (string.IsNullOrWhiteSpace(TbLogin.Text))
             {
-                MessageBox.Show("Логин не может быть пустым" + context.Client1.ToList().Where(i => i.FirstName == TbFirstName.Text).FirstOrDefault());
+                MessageBox.Show("Логин не может быть пустым");
                 return;
             }
             if (string.IsNullOrWhiteSpace(TbPassword1.Password))
@@ -101,22 +101,22 @@ namespace PinchukovLobutev9_14.Windows
             {
 
 
-                Db.Employee employee = new Db.Employee();
-                employee.FirstName = TbLastNeme.Text;
-                employee.Phone = TbPhone.Text;
-                employee.DateOfBirthday = DPB.SelectedDate.Value;
-                employee.IdGender = (CmbGender.SelectedItem as Db.Gender).ID;
-                context.Client1.Add(client1);
+                //Db.Employee employee = new Db.Employee();
+                //employee.FirstName = TbLastNeme.Text;
+                //employee.Phone = TbPhone.Text;
+                //employee.DateOfBirthday = DPB.SelectedDate.Value;
+                //employee.IdGender = (CmbGender.SelectedItem as Db.Gender).ID;
+                //context.Client1.Add(client1);
 
-                context.SaveChanges();
+                //context.SaveChanges();
 
-                Db.Authorization authorization = new Db.Authorization();
-                authorization.Login = TbLogin.Text;
-                authorization.Password = TbPassword1.Password;
-                authorization.IdClient = (context.Client1.ToList().Where(i => i.FirstName == TbName.Text).FirstOrDefault()).ID;
-                context.Authorization.Add(authorization);
+                //Db.Authorization authorization = new Db.Authorization();
+                //authorization.Login = TbLogin.Text;
+                //authorization.Password = TbPassword1.Password;
+                //authorization.IdClient = (context.Client1.ToList().Where(i => i.FirstName == TbName.Text).FirstOrDefault()).ID;
+                //context.Authorization.Add(authorization);
 
-                context.SaveChanges();
+                //context.SaveChanges();
             }
 
 

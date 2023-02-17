@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MenuWindow" Height="450" Width="800">
     <Grid>
-        
+        <Frame/>
+        <Button x:Name="btnAddProduct" Content="Добавить блюдо" Width="100" Height="20" Click="btnAddProduct_Click"/>
     </Grid>
 </Window>
