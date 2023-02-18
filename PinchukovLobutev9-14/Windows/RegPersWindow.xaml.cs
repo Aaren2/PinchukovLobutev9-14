@@ -49,6 +49,54 @@ namespace PinchukovLobutev9_14.Windows
         }
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(TbFirstName.Text))
+            {
+                MessageBox.Show("Имя не может быть пустым");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(TbLastName.Text))
+            {
+                MessageBox.Show("Фамилия не может быть пустой");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(TbPhone.Text))
+            {
+                MessageBox.Show("Телефон не может быть пустым");
+                return;
+            }
+            bool result = Int64.TryParse(TbPhone.Text, out var number);
+            if (result != true)
+            {
+                MessageBox.Show("Телефон должен быть заполнен числами");
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(TbEmail.Text))
+            {
+                MessageBox.Show("Почта не может быть пустой");
+                return;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(TbPassport.Text))
+            {
+                MessageBox.Show("Паспорт не может быть пустым");
+                return;
+            }
+            bool result1 = Int64.TryParse(TbPassport.Text, out var number1);
+            if (result != true)
+            {
+                MessageBox.Show("Паспорт должен быть заполнен числами");
+                return;
+            }
+
+
+            if (string.IsNullOrWhiteSpace(DPB.Text))
+            {
+                MessageBox.Show("Не введена дата рождения");
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(TbLogin.Text))
             {
                 MessageBox.Show("Логин не может быть пустым");
@@ -64,59 +112,53 @@ namespace PinchukovLobutev9_14.Windows
                 MessageBox.Show("Пароли должны быть одинаковыми");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(TbFirstName.Text))
+
+
+            if (string.IsNullOrWhiteSpace(PbCode.Password))
             {
-                MessageBox.Show("Имя не может быть пустым");
+                MessageBox.Show("Код сотрудника не может быть пустым");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(TbLastName.Text))
+            var authUser = context.Role.ToList().Where(i => i.PersonCode == Convert.ToInt32(PbCode.Password)).FirstOrDefault();
+            if (authUser == null)
             {
-                MessageBox.Show("Фамилия не может быть пустой");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(TbPhone.Text))
-            {
-                MessageBox.Show("Телефон не может быть пустым");
-                return;
-            }
-            bool result = Int64.TryParse(TbPhone.Text, out var number);
-            if (result != true)
-            {
-                MessageBox.Show("Телефон должен быть заполнен числами");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(DPB.Text))
-            {
-                MessageBox.Show("Не введена дата рождения");
+                MessageBox.Show("Неверный код сотрудника");
                 return;
             }
 
-            var authUser = context.Authorization.ToList().Where(i => i.Login == TbLogin.Text).FirstOrDefault();
-            if (authUser != null)
+            var authUser1 = context.Authorization.ToList().Where(i => i.Login == TbLogin.Text).FirstOrDefault();
+            if (authUser1 != null)
             {
-                MessageBox.Show("Такой пользователь уже есть");
+                MessageBox.Show("Такой логин занят");
                 return;
             }
             else
             {
 
 
-                //Db.Employee employee = new Db.Employee();
-                //employee.FirstName = TbLastNeme.Text;
-                //employee.Phone = TbPhone.Text;
-                //employee.DateOfBirthday = DPB.SelectedDate.Value;
-                //employee.IdGender = (CmbGender.SelectedItem as Db.Gender).ID;
-                //context.Client1.Add(client1);
+                Db.Employee employee = new Db.Employee();
+                employee.FirstName = TbFirstName.Text;
+                employee.LastName = TbLastName.Text;
+                employee.MidleName= TbMidlleName.Text;
+                employee.Phone = TbPhone.Text;
+                employee.Email = TbEmail.Text;
+                employee.Passport = TbPassport.Text;
+                employee.DateOfBirthday = DPB.SelectedDate.Value;
+                employee.IdGender = (CmbGender.SelectedItem as Db.Gender).ID;
+                employee.IdRole = (context.Role.ToList().Where(i => i.PersonCode == Convert.ToInt32(PbCode.Password)).FirstOrDefault()).ID;
 
-                //context.SaveChanges();
 
-                //Db.Authorization authorization = new Db.Authorization();
-                //authorization.Login = TbLogin.Text;
-                //authorization.Password = TbPassword1.Password;
-                //authorization.IdClient = (context.Client1.ToList().Where(i => i.FirstName == TbName.Text).FirstOrDefault()).ID;
-                //context.Authorization.Add(authorization);
+                context.Employee.Add(employee);
 
-                //context.SaveChanges();
+                context.SaveChanges();
+
+                Db.Authorization authorization = new Db.Authorization();
+                authorization.Login = TbLogin.Text;
+                authorization.Password = TbPassword1.Password;
+                authorization.IdEmployee = (context.Employee.ToList().Where(i => i.FirstName == TbFirstName.Text).Last()).ID;
+                context.Authorization.Add(authorization);
+
+                context.SaveChanges();
             }
 
 
@@ -124,5 +166,7 @@ namespace PinchukovLobutev9_14.Windows
 
 
         }
+
+
     }
 }

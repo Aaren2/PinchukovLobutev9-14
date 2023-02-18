@@ -84,7 +84,7 @@ namespace PinchukovLobutev9_14.Windows
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             var fileContent = string.Empty;
-            openFileDialog.InitialDirectory = "c:\\";
+            openFileDialog.InitialDirectory = "C:\\";
             openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
 
             openFileDialog.RestoreDirectory = true;

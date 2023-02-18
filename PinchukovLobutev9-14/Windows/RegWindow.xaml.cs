@@ -107,7 +107,7 @@ namespace PinchukovLobutev9_14.Windows
                 Db.Authorization authorization = new Db.Authorization();
                 authorization.Login = TbLogin.Text;
                 authorization.Password = TbPassword1.Password;
-                authorization.IdClient = (context.Client1.ToList().Where(i => i.FirstName == TbName.Text).FirstOrDefault()).ID;
+                authorization.IdClient = (context.Client1.ToList().Where(i => i.FirstName == TbName.Text).Last()).ID;
                 context.Authorization.Add(authorization);
 
                 context.SaveChanges();
