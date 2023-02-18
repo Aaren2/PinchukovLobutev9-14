@@ -70,7 +70,7 @@ namespace PinchukovLobutev9_14.Windows
                 product.Description = TbDesc.Text;
                 if (pathPhoto != null)
                 {
-                    product.ImageProduct =File.ReadAllBytes( pathPhoto);
+                    product.ImageProduct =File.ReadAllBytes(pathPhoto);
                 }
                 context.Product.Add(product);
 
@@ -85,7 +85,7 @@ namespace PinchukovLobutev9_14.Windows
             OpenFileDialog openFileDialog = new OpenFileDialog();
             var fileContent = string.Empty;
             openFileDialog.InitialDirectory = "c:\\";
-
+            openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
 
             openFileDialog.RestoreDirectory = true;
             if (openFileDialog.ShowDialog() == true)
@@ -93,15 +93,6 @@ namespace PinchukovLobutev9_14.Windows
                 ImgProd.Source = new BitmapImage(new Uri(openFileDialog.FileName));
                 pathPhoto = openFileDialog.FileName;
             }
-
-            MessageBox.Show(pathPhoto + "");
-
-
-
-
-
-
-
         }
     }
 }
