@@ -20,5 +20,5 @@
 <b>Рабочее добавление картинки к продукту </b>
 ![image](https://user-images.githubusercontent.com/114148739/219665455-84beedf3-3d76-4d0e-a456-f3ed589320d5.png)
 ![image](https://user-images.githubusercontent.com/114148739/219665466-a7388895-9653-45d6-8ac6-3dc1f3d173b5.png)
-![image](https://user-images.githubusercontent.com/114148739/219665475-5135a506-0bab-47bc-bd46-f293623c6b80.png)
+![image](https://user-images.githubusercontent.com/114148739/219850642-6c514a4f-6f9f-4c30-8714-7670c820285a.png)
 
