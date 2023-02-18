@@ -17,3 +17,8 @@
 ![image](https://user-images.githubusercontent.com/114148739/218982588-b9bd50c4-b802-4578-8f0f-dcad65f6b03c.png)
 ![image](https://user-images.githubusercontent.com/114148739/218981763-32534c4e-36d3-4b9d-8545-ebdfd2e7863b.png)
 ![image](https://user-images.githubusercontent.com/114148739/218982702-0307fd88-8d48-405d-944c-070b97c6614e.png)
+<b>Рабочее добавление картинки к продукту </b>
+![image](https://user-images.githubusercontent.com/114148739/219665455-84beedf3-3d76-4d0e-a456-f3ed589320d5.png)
+![image](https://user-images.githubusercontent.com/114148739/219665466-a7388895-9653-45d6-8ac6-3dc1f3d173b5.png)
+![image](https://user-images.githubusercontent.com/114148739/219665475-5135a506-0bab-47bc-bd46-f293623c6b80.png)
+
