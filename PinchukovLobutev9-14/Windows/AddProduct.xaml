@@ -12,7 +12,8 @@
             <ColumnDefinition Width="401*"/>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <Image x:Name="ImgProd" Source="C:\Users\IMac3\source\repos\PinchukovLobutev9-14\PinchukovLobutev9-14\kisspng-coffee-cup-cartoon-drawing-hand-painted-cartoon-coffee-5aa4046fbf4ee4.5975693615206984797836.jpg"/>
+            <Button/>
+            <Image x:Name="ImgProd" Width="400" Source="C:\Users\IMac3\source\repos\PinchukovLobutev9-14\PinchukovLobutev9-14\kisspng-coffee-cup-cartoon-drawing-hand-painted-cartoon-coffee-5aa4046fbf4ee4.5975693615206984797836.jpg"/>
             <Button x:Name="BtnImgAdd" Content="Добавить картинку" Height="20" Width="150" Margin="0 50 0 0" Click="BtnImgAdd_Click"/>
         </StackPanel>
         <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -70,7 +70,7 @@ namespace PinchukovLobutev9_14.Windows
                 product.Description = TbDesc.Text;
                 if (pathPhoto != null)
                 {
-                    product.ImageProduct = pathPhoto;
+                    product.ImageProduct =File.ReadAllBytes( pathPhoto);
                 }
                 context.Product.Add(product);
 

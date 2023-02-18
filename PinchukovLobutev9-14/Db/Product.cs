@@ -24,7 +24,7 @@ namespace PinchukovLobutev9_14.Db
         public string NameOfProduct { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
-        public string ImageProduct { get; set; }
+        public byte[] ImageProduct { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SaleProduct> SaleProduct { get; set; }
