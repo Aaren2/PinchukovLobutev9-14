@@ -76,7 +76,10 @@ namespace PinchukovLobutev9_14.Windows
 
                 context.SaveChanges();
 
-               
+                MenuWindow menuWindow = new MenuWindow();
+                menuWindow.Show();
+                this.Close();
+
             }
         }
 
