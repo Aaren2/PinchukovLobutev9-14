@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using PinchukovLobutev9_14.Db;
 
 namespace PinchukovLobutev9_14.ClassHelper
 {
-    public class EFClass
+    internal class AuthorizationDataClass
     {
-        public static Entities1 context {get;} = new Entities1();    
+        public static Authorization authorization { get; set; }
     }
 }

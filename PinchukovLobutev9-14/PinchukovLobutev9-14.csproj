@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClassHelper\EFClass.cs" />
+    <Compile Include="ClassHelper\AuthorizationDataClass.cs" />
     <Compile Include="Db\Authorization.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -91,9 +92,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Db\Power.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Db\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -295,6 +293,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Res\defaultImage.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Db\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -305,7 +306,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Res\defaultImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -40,7 +40,8 @@ namespace PinchukovLobutev9_14.Windows
             var authUser = context.Authorization.ToList().Where(i => i.Password == TbPassword.Password && i.Login == TbLogin.Text).FirstOrDefault();
             if (authUser != null)
             {
-                MenuWindow menuWindow = new MenuWindow();
+                AuthorizationDataClass.authorization = authUser;
+                MainWindow menuWindow = new MainWindow();
                 menuWindow.Show();
                 this.Close();
             }

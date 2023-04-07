@@ -22,11 +22,9 @@ namespace PinchukovLobutev9_14.Db
     
         public int ID { get; set; }
         public string NameOfRole { get; set; }
-        public int IdPower { get; set; }
         public int PersonCode { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Employee> Employee { get; set; }
-        public virtual Power Power { get; set; }
     }
 }

@@ -27,6 +27,10 @@ namespace PinchukovLobutev9_14.Windows
         public MenuWindow()
         {
             InitializeComponent();
+            if (AuthorizationDataClass.authorization.IdClient != 0)
+            {
+                btnAddProduct.Visibility = Visibility.Collapsed;
+            }
             GetProduct();
         }
         private void GetProduct()

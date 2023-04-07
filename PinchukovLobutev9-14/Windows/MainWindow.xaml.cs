@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PinchukovLobutev9_14.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PinchukovLobutev9_14.ClassHelper;
 
 namespace PinchukovLobutev9_14
 {
@@ -23,6 +25,43 @@ namespace PinchukovLobutev9_14
         public MainWindow()
         {
             InitializeComponent();
+            if (AuthorizationDataClass.authorization.IdClient != 0)
+            {
+                BtnAuthorization.Visibility = Visibility.Collapsed;
+                BtnEmployee.Visibility = Visibility.Collapsed;
+                BtnClient.Visibility = Visibility.Collapsed;
+                BtnOrder.Visibility = Visibility.Collapsed;
+            }
+
+
+        }
+
+        private void BtnEmplyee_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnClient_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAuthorization_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnOrder_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnProduct_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menuWindow = new MenuWindow();
+            this.Hide();
+            menuWindow.ShowDialog();
+            this.Show();
         }
     }
 }
