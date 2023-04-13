@@ -31,14 +31,13 @@ namespace PinchukovLobutev9_14
         public MainWindow()
         {
             InitializeComponent();
-            BtnAuthorization.Visibility = Visibility.Collapsed;
-            BtnEmployee.Visibility = Visibility.Collapsed;
-            BtnClient.Visibility = Visibility.Collapsed;
-            BtnOrder.Visibility = Visibility.Collapsed;
+            
             if (AuthorizationDataClass.authorization.IdClient != null)
             {
                 TbUser.Text = "Клиент";
-                
+                BtnEmployee.Visibility = Visibility.Collapsed;
+                BtnClient.Visibility = Visibility.Collapsed;
+                BtnOrder.Visibility = Visibility.Collapsed;
             }
             else
             {
@@ -51,22 +50,26 @@ namespace PinchukovLobutev9_14
 
         private void BtnEmplyee_Click(object sender, RoutedEventArgs e)
         {
-
+            EmployeeWindow employeeWindow = new EmployeeWindow();
+            this.Hide();
+            employeeWindow.ShowDialog();
+            this.Show();
         }
 
         private void BtnClient_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void BtnAuthorization_Click(object sender, RoutedEventArgs e)
-        {
-
+            ClientWindow clientWindow = new ClientWindow();
+            this.Hide();
+            clientWindow.ShowDialog();
+            this.Show();
         }
 
         private void BtnOrder_Click(object sender, RoutedEventArgs e)
         {
-
+            OrderWindow orderWindow = new OrderWindow();
+            this.Hide();
+            orderWindow.ShowDialog();
+            this.Show();
         }
 
         private void BtnProduct_Click(object sender, RoutedEventArgs e)

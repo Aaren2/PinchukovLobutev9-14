@@ -1,11 +1,11 @@
-﻿<Window x:Class="PinchukovLobutev9_14.Windows.MenuWindow"
+﻿<Window x:Class="PinchukovLobutev9_14.Windows.OrderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PinchukovLobutev9_14.Windows"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="500" Width="800">
+        Title="OrderWindow" Height="500" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -13,8 +13,8 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Продукты" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-        <ListView x:Name="LVProd" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <TextBlock Text="Заказ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        <ListView x:Name="LVOrder" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -27,37 +27,47 @@
                             BorderThickness="1"
                             Margin="5"
                             Width="165"
-                            Height="260">
+                            Height="280">
                         <StackPanel>
                             <Image Height="140"
                                    Width="165"
                                    Stretch="Fill">
                                 <Image.Source>
-                                    <Binding Path="ImageProduct">
+                                    <Binding Path="Product.ImageProduct">
                                         <Binding.TargetNullValue>
                                             <ImageSource>\Res\defaultImage.png</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
                             </Image>
-                            <TextBlock Text="{Binding NameOfProduct}"
+                            <TextBlock Text="{Binding Product.NameOfProduct}"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 0 0"
                                        TextWrapping="Wrap" />
 
-                            <TextBlock Text="{Binding Price}"
+                            <TextBlock Text="{Binding Product.Price}"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 0 0"/>
 
-                            <TextBlock Text="{Binding Description}"
-                                       FontSize="14"
+                            <TextBlock Text="{Binding Quantity}"
+                                       FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 10 0"
-                                       TextWrapping="Wrap" 
-                                       />
+                                       TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Sale.IdEmployee}"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="10 0 10 0"
+                                       TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Sale.IdClient}"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="10 0 10 0"
+                                       TextWrapping="Wrap"/>
                             
+
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -66,6 +76,6 @@
 
 
         </ListView>
-        <Button x:Name="btnAddProduct" Content="Добавить блюдо" Width="100" Height="20" Click="btnAddProduct_Click"  Grid.Row="3"/>
+        <Button x:Name="btnAddOrder" Content="Добавить блюдо" Width="100" Height="20" Click="btnAddOrder_Click"  Grid.Row="3"/>
     </Grid>
 </Window>
