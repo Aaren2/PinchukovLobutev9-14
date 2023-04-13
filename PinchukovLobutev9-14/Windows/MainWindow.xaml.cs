@@ -14,6 +14,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PinchukovLobutev9_14.ClassHelper;
+using System.Runtime.Remoting.Contexts;
+
+
+using PinchukovLobutev9_14.Db;
+using static PinchukovLobutev9_14.ClassHelper.EFClass;
+
 
 namespace PinchukovLobutev9_14
 {
@@ -25,13 +31,20 @@ namespace PinchukovLobutev9_14
         public MainWindow()
         {
             InitializeComponent();
-            if (AuthorizationDataClass.authorization.IdClient != 0)
+            BtnAuthorization.Visibility = Visibility.Collapsed;
+            BtnEmployee.Visibility = Visibility.Collapsed;
+            BtnClient.Visibility = Visibility.Collapsed;
+            BtnOrder.Visibility = Visibility.Collapsed;
+            if (AuthorizationDataClass.authorization.IdClient != null)
             {
-                BtnAuthorization.Visibility = Visibility.Collapsed;
-                BtnEmployee.Visibility = Visibility.Collapsed;
-                BtnClient.Visibility = Visibility.Collapsed;
-                BtnOrder.Visibility = Visibility.Collapsed;
+                TbUser.Text = "Клиент";
+                
             }
+            else
+            {
+                TbUser.Text = context.Role.ToList().Where(i => i.ID == context.Employee.ToList().Where(j => j.ID == AuthorizationDataClass.authorization.IdEmployee).FirstOrDefault().IdRole).FirstOrDefault().NameOfRole;
+            }
+
 
 
         }

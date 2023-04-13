@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" WindowStartupLocation="CenterScreen" Height="450" Width="800">
     <Grid>
+        <TextBlock x:Name="TbUser" FontSize="20" />
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" >
             <Button x:Name="BtnEmployee" Content="Работники" FontSize="18" Margin="10" Click="BtnEmplyee_Click"/>
             <Button x:Name="BtnClient" Content="Клиенты" FontSize="18" Margin="10" Click="BtnClient_Click"/>

@@ -29,7 +29,13 @@ namespace PinchukovLobutev9_14.Windows
             InitializeComponent();
             if (AuthorizationDataClass.authorization.IdClient != 0)
             {
-                btnAddProduct.Visibility = Visibility.Collapsed;
+                if (!AuthorizationDataClass.authorization.IdEmployee.Equals(null)) 
+                {
+                    if (!context.Employee.ToList().Where(i => i.ID == AuthorizationDataClass.authorization.IdEmployee).FirstOrDefault().IdRole.Equals(1))
+                    {
+                        btnAddProduct.Visibility = Visibility.Collapsed;
+                    }
+                }               
             }
             GetProduct();
         }
