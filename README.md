@@ -24,4 +24,11 @@
 <b>Вывод меню</b>
 ![image](https://user-images.githubusercontent.com/114148739/220130276-8003c58b-8dc1-41c7-9dc7-6b3d055a9b32.png)
 ![image](https://user-images.githubusercontent.com/114148739/220130281-7ec45dc0-d931-4072-b573-2b7a0a2b5811.png)
+<b>Авторизация с учётом роли</b>
+![image](https://user-images.githubusercontent.com/114148739/231668202-1cee7d6f-5bcd-4072-81ce-07c54a5e0516.png)
+![image](https://user-images.githubusercontent.com/114148739/231668213-96ecef06-7d9e-49b4-b74e-a1122a47b225.png)
+![image](https://user-images.githubusercontent.com/114148739/231668225-7a3caaed-9a5b-4575-8493-34d7faf40376.png)
+![image](https://user-images.githubusercontent.com/114148739/231668227-c7ad4f12-c93e-4dea-81e5-bfeeb32dfed7.png)
+![image](https://user-images.githubusercontent.com/114148739/231668235-8ba53cf4-1d08-4777-b09d-bdd0336ce996.png)
+
 
