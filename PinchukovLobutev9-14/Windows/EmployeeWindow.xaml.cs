@@ -57,10 +57,8 @@ namespace PinchukovLobutev9_14.Windows
         private void btnAddEmployee_Click(object sender, RoutedEventArgs e)
         {
             AddEmployeeWindow addEmployeeWindow = new AddEmployeeWindow(false,null);
-            this.Hide();
-            addEmployeeWindow.ShowDialog();
-            GetProduct();
-            this.ShowDialog();
+            addEmployeeWindow.Show();
+            this.Close();
         }
 
         private void btnUpdEmployee_Click(object sender, RoutedEventArgs e)
@@ -72,6 +70,12 @@ namespace PinchukovLobutev9_14.Windows
                 addEmployeeWindow.ShowDialog();
                 GetProduct();
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }

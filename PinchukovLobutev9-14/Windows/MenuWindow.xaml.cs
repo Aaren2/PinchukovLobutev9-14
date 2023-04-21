@@ -47,6 +47,32 @@ namespace PinchukovLobutev9_14.Windows
 
             LVProd.ItemsSource = ProdList;
         }
+        private void BtnAddToCart_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
+
+            var selectedProduct = button.DataContext as Db.Product;
+
+
+            if (selectedProduct != null)
+            {
+                ClassHelper.Cart.Products.Add(selectedProduct);
+            }
+
+
+        }
+
+        private void BtnGoToCart_Click(object sender, RoutedEventArgs e)
+        {
+            CartWindow cartWindow = new CartWindow();
+            this.Hide();
+            cartWindow.ShowDialog();
+            this.Show();
+        }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {

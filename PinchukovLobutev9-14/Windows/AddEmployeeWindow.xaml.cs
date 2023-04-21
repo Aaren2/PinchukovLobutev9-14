@@ -186,13 +186,22 @@ namespace PinchukovLobutev9_14.Windows
                     context.Authorization.Add(authorization);
 
                     context.SaveChanges();
+
+                    this.Close();
+
                     
                 }
                 
                  
                  
-            }
-            this.Close();
+            }          
+            
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            EmployeeWindow employeeWindow = new EmployeeWindow();
+            employeeWindow.Show();
         }
     }
 }

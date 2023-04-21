@@ -52,5 +52,11 @@ namespace PinchukovLobutev9_14.Windows
         private void btnAddClient_Click(object sender, RoutedEventArgs e)
         {
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+        }
     }
 }

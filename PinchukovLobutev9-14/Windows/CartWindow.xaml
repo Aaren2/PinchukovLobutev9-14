@@ -1,31 +1,27 @@
-﻿<Window x:Class="PinchukovLobutev9_14.Windows.MenuWindow"
+﻿<Window x:Class="PinchukovLobutev9_14.Windows.CartWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PinchukovLobutev9_14.Windows"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="500" Width="800">
+        Title="CartWindow" Height="800" 
+        Width="1200"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Продукты" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
-        <Button x:Name="BtnGoToCart"
-                Grid.Row="1"
-                Width="40"
-                Height="40"
-                Background="{x:Null}"
-                BorderThickness="0"
-                HorizontalAlignment="Right"
-                Margin="0 0 20 0"
-                Click="BtnGoToCart_Click">
-            <Image Source="/Res/image1.png"/>
-        </Button>
-        <ListView x:Name="LVProd" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+
+        <TextBlock Text="Корзина"
+                   HorizontalAlignment="Center"
+                   FontSize="30"
+                   FontWeight="Bold"/>
+
+        <ListView x:Name="LvCartProductList" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -75,10 +71,10 @@
                                     BorderThickness="0"
                                     HorizontalAlignment="Right"
                                     Margin="0 0 20 0"
-                                    Click="BtnAddToCart_Click">
-                                <Image Source="/Res/image1.png"/>
+                                    Click="BtnRemoveToCart_Click">
+                                <Image Source="/Res/image2.png"/>
                             </Button>
-                            
+                          
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -87,6 +83,16 @@
 
 
         </ListView>
-        <Button x:Name="btnAddProduct" Content="Добавить блюдо" Width="100" Height="20" Click="btnAddProduct_Click"  Grid.Row="3"/>
+        <Button x:Name="BtnAddProduct"
+                Grid.Row="3"
+                Width="40"
+                Height="40"
+                HorizontalAlignment="Right"
+                Margin="0 0 20 0"
+                Background="{x:Null}"
+                BorderThickness="0"
+                >
+            <Image Source="/Res/image2.png"/>
+        </Button>
     </Grid>
 </Window>
