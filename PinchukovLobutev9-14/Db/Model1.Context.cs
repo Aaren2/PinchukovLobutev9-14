@@ -15,10 +15,10 @@ namespace PinchukovLobutev9_14.Db
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities1 : DbContext
+    public partial class Entities2 : DbContext
     {
-        public Entities1()
-            : base("name=Entities1")
+        public Entities2()
+            : base("name=Entities2")
         {
         }
     

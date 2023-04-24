@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -49,18 +50,29 @@ namespace PinchukovLobutev9_14.Windows
         }
         private void BtnAddToCart_Click(object sender, RoutedEventArgs e)
         {
+            bool seek = true;
             Button button = sender as Button;
             if (button == null)
             {
                 return;
             }
-
-            var selectedProduct = button.DataContext as Db.Product;
-
+            Db.Product selectedProduct = button.DataContext as Db.Product;
 
             if (selectedProduct != null)
             {
-                ClassHelper.Cart.Products.Add(selectedProduct);
+                for (int i = 0; i < ClassHelper.Cart.Products.Count; i++)
+                {
+                    if (ClassHelper.Cart.Products[i] == selectedProduct)
+                    {
+                        ClassHelper.Cart.Products[i].Quantity++;
+                        seek = false;
+                    }
+                }
+                if (seek)
+                {
+                    selectedProduct.Quantity = 1;
+                    ClassHelper.Cart.Products.Add(selectedProduct);
+                }
             }
 
 

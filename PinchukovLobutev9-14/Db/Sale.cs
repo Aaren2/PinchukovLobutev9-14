@@ -23,7 +23,7 @@ namespace PinchukovLobutev9_14.Db
         public int ID { get; set; }
         public int IdClient { get; set; }
         public int IdEmployee { get; set; }
-        public int IdSaleProduct { get; set; }
+        public System.DateTime Date { get; set; }
     
         public virtual Client1 Client1 { get; set; }
         public virtual Employee Employee { get; set; }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
 using System.Text;
@@ -34,6 +35,7 @@ namespace PinchukovLobutev9_14.Windows
             ObservableCollection<Db.Product> products = new ObservableCollection<Db.Product>(ClassHelper.Cart.Products);
 
             LvCartProductList.ItemsSource = products;
+
         }
 
         private void BtnRemoveToCart_Click(object sender, RoutedEventArgs e)
@@ -43,29 +45,70 @@ namespace PinchukovLobutev9_14.Windows
             {
                 return;
             }
-
-            var selectedProduct = button.DataContext as Db.Product;
-
+            Db.Product selectedProduct = button.DataContext as Db.Product;
 
             if (selectedProduct != null)
             {
-                ClassHelper.Cart.Products.Remove(selectedProduct);
+                if (selectedProduct.Quantity == 1 || selectedProduct.Quantity == 0)
+                {
+                    ClassHelper.Cart.Products.Remove(selectedProduct);
+                }
+                else
+                {
+                    selectedProduct.Quantity--;
+                    int o = ClassHelper.Cart.Products.IndexOf(selectedProduct);
+                    ClassHelper.Cart.Products.Remove(selectedProduct);
+                    ClassHelper.Cart.Products.Insert(o, selectedProduct);
+                }
+
             }
             GetListProduct();
+        }
 
+        private void BtnAddToCart_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = sender as Button;
+            if (button == null)
+            {
+                return;
+            }
 
+            Db.Product selectedProduct = button.DataContext as Db.Product;
+            if (selectedProduct != null)
+            {
+                selectedProduct.Quantity++;
+                int o = ClassHelper.Cart.Products.IndexOf(selectedProduct);
+                ClassHelper.Cart.Products.Remove(selectedProduct);
+                ClassHelper.Cart.Products.Insert(o, selectedProduct);
+            }
+            GetListProduct();
         }
 
         private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             Db.Sale sale = new Db.Sale();
-            sale.IdEmployee = 2;
-            sale.IdClient = ClassHelper.AuthorizationDataClass.authorization.IdClient;
-            ClassHelper.EFClass.context.Sale.Add(sale);
-            ClassHelper.EFClass.context.SaveChanges();
+            sale.IdEmployee = (int)ClassHelper.AuthorizationDataClass.authorization.IdEmployee;
+            sale.IdClient = 1;
+            sale.Date = DateTime.Now;
+            if (sale != null)
+            {
+                ClassHelper.EFClass.context.Sale.Add(sale);
+                ClassHelper.EFClass.context.SaveChanges();
+            }
 
-            Db.SaleProduct saleProduct = new Db.SaleProduct();
 
+            foreach (var item in ClassHelper.Cart.Products)
+            {
+                Db.SaleProduct saleProduct = new Db.SaleProduct();
+                saleProduct.IdProduct = item.ID;
+                saleProduct.Quantity = item.Quantity;
+                saleProduct.IdSale = ClassHelper.EFClass.context.Sale.ToList().LastOrDefault().ID;
+                ClassHelper.EFClass.context.SaleProduct.Add(saleProduct);
+                ClassHelper.EFClass.context.SaveChanges();
+            }
+            MessageBox.Show("Продукты успешно добавлены");
+            Close();
         }
     }
+    
 }

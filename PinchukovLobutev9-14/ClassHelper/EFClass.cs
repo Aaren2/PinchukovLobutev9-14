@@ -10,6 +10,6 @@ namespace PinchukovLobutev9_14.ClassHelper
 {
     public class EFClass
     {
-        public static Entities1 context {get;} = new Entities1();    
+        public static Entities2 context {get;} = new Entities2();    
     }
 }

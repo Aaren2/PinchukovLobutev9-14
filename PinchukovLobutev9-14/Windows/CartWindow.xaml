@@ -34,7 +34,7 @@
                             BorderThickness="1"
                             Margin="5"
                             Width="165"
-                            Height="260">
+                            Height="300">
                         <StackPanel>
                             <Image Height="140"
                                    Width="165"
@@ -64,17 +64,34 @@
                                        Margin="10 0 10 0"
                                        TextWrapping="Wrap" 
                                        />
-                            <Button x:Name="BtnAddToCart"
+                            <TextBlock Text="{Binding Quantity}"
+                                       FontSize="14"
+                                       FontWeight="Bold"
+                                       Margin="10 0 10 0"
+                                       TextWrapping="Wrap" 
+                                       />
+                            <WrapPanel>
+                                <Button x:Name="BtnAddToCart"
                                     Width="40"
                                     Height="40"
                                     Background="{x:Null}"
                                     BorderThickness="0"
                                     HorizontalAlignment="Right"
-                                    Margin="0 0 20 0"
-                                    Click="BtnRemoveToCart_Click">
-                                <Image Source="/Res/image2.png"/>
-                            </Button>
-                          
+                                    Click="BtnAddToCart_Click"
+                                    Content="+" FontSize="36"    >
+                                </Button>
+                                <Button x:Name="BtnRemovToCart"
+                                    Width="40"
+                                    Height="40"
+                                    Background="{x:Null}"
+                                    BorderThickness="0"
+                                    HorizontalAlignment="Center"
+                                    Click="BtnRemoveToCart_Click" VerticalAlignment="Center"
+                                    Content="-" FontSize="36"    >
+                                </Button>
+                            </WrapPanel>
+
+
                         </StackPanel>
                     </Border>
                 </DataTemplate>
@@ -87,12 +104,12 @@
                 Grid.Row="3"
                 Width="40"
                 Height="40"
-                HorizontalAlignment="Right"
-                Margin="0 0 20 0"
+                HorizontalAlignment="Center"
+                Margin="0 0 0 0"
                 Background="{x:Null}"
-                BorderThickness="0"
+                BorderThickness="0" Click="BtnAddProduct_Click" VerticalAlignment="Center"
                 >
-            <Image Source="/Res/image2.png"/>
+            <Image Source="/Res/image1.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         </Button>
     </Grid>
 </Window>
