@@ -30,5 +30,9 @@
 ![image](https://user-images.githubusercontent.com/114148739/231668225-7a3caaed-9a5b-4575-8493-34d7faf40376.png)
 ![image](https://user-images.githubusercontent.com/114148739/231668227-c7ad4f12-c93e-4dea-81e5-bfeeb32dfed7.png)
 ![image](https://user-images.githubusercontent.com/114148739/231668235-8ba53cf4-1d08-4777-b09d-bdd0336ce996.png)
-
+<b>Карзина</b>
+![image](https://user-images.githubusercontent.com/114148739/234774520-eba69db1-f4b7-4774-bd63-7f653347309a.png)
+![image](https://user-images.githubusercontent.com/114148739/234774531-7b6257da-8b30-4ae5-941b-19ca90b5f02f.png)
+![image](https://user-images.githubusercontent.com/114148739/234774539-2fe3ee47-91e9-4e7d-ab26-18847eca80bf.png)
+![image](https://user-images.githubusercontent.com/114148739/234774543-16a397db-9a73-4bbb-bc29-03bd25aa0c1b.png)
 
