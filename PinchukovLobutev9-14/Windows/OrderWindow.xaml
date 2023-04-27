@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PinchukovLobutev9_14.Windows"
         mc:Ignorable="d"
-        Title="OrderWindow" Height="500" Width="800">
+        Title="OrderWindow" Height="550" Width="930">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
@@ -15,9 +15,21 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Заказ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
         <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox x:Name="TBDateStar"/>
-            <TextBox x:Name="TBDateEnd"/>
-            <Button x:Name="BTNSerch"/>
+            <DatePicker x:Name="TBDateStar" Width="125" Margin="0,0,25,0" />
+            <DatePicker x:Name="TBDateEnd" Width="125" Margin="0,0,25,0"/>
+            <Button x:Name="BTNSerch" Content="Поиск" Click="BTNSerch_Click"/>
+            <ComboBox x:Name="CBSerch" Width="125" Margin="400,0,0,0">
+                <ComboBoxItem Name="IdOrder" Content="Код заказа" Selected="IdOrder_Selected"/>
+                <ComboBoxItem Name="FullPrice" Content="Полная цена" Selected="IdOrder_Selected"/>
+                <ComboBoxItem Name="Quantity" Content="Количество" Selected="IdOrder_Selected"/>
+                <ComboBoxItem Name="Date" Content="Дата" Selected="IdOrder_Selected"/>
+                <ComboBoxItem Name="IdEmployee" Content="Код сотрудника" Selected="IdOrder_Selected" />
+                <ComboBoxItem Name="IdClient" Content="Код клиента" Selected="IdOrder_Selected"/>
+            </ComboBox>
+            <ComboBox x:Name="CBOrderBy" >
+                <ComboBoxItem x:Name="Max" Content="->" Selected="OrderBy_Selected" />
+                <ComboBoxItem x:Name="Min" Content="&lt;-" />
+            </ComboBox>
         </WrapPanel>
         <ListView x:Name="LVOrder" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
@@ -31,8 +43,8 @@
                     <Border BorderBrush="Black"
                             BorderThickness="1"
                             Margin="5"
-                            Width="165"
-                            Height="320">
+                            Width="200"
+                            Height="340">
                         <StackPanel>
                             <Image Height="140"
                                    Width="165"
@@ -66,6 +78,11 @@
                                        FontWeight="Bold"
                                        Margin="10 0 10 0"
                                        TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Date}"
+                                       FontSize="18"
+                                       FontWeight="Bold"
+                                       Margin="10 0 10 0"
+                                       TextWrapping="Wrap"/>
                             <TextBlock Text="{Binding IdEmployee}"
                                        FontSize="18"
                                        FontWeight="Bold"
@@ -86,6 +103,6 @@
 
 
         </ListView>
-        <Button x:Name="btnAddOrder" Content="Добавить блюдо" Width="100" Height="20" Click="btnAddOrder_Click"  Grid.Row="3"/>
+
     </Grid>
 </Window>

@@ -27,7 +27,7 @@ namespace PinchukovLobutev9_14.Windows
         public OrderWindow()
         {
             InitializeComponent();
-            btnAddOrder.Visibility = Visibility.Collapsed;
+            CBOrderBy.SelectedIndex = 0;
             if (AuthorizationDataClass.authorization.IdClient != 0)
             {
                 if (!AuthorizationDataClass.authorization.IdEmployee.Equals(null))
@@ -49,8 +49,73 @@ namespace PinchukovLobutev9_14.Windows
             LVOrder.ItemsSource = OrderStatic;
         }
 
-        private void btnAddOrder_Click(object sender, RoutedEventArgs e)
+
+        private void BTNSerch_Click(object sender, RoutedEventArgs e)
         {
+            LVOrder.ItemsSource = context.OrderStatic.ToList().Where(i => i.Date >= TBDateStar.SelectedDate && i.Date <= TBDateEnd.SelectedDate);
+        }
+
+        private void IdOrder_Selected(object sender, RoutedEventArgs e)
+        {
+
+            ComboBoxItem item = sender as ComboBoxItem;
+            if (CBOrderBy.SelectedIndex == 0) {                
+                switch(item.Name) {
+                    case "IdOrder":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderBy(i => i.ID);
+                        break;
+                    case "FullPrice":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderBy(i => i.FullPrice);
+                        break;
+                    case "Quantity":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderBy(i => i.Quantity);
+                        break;
+                    case "Date":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderBy(i => i.Date);
+                        break;
+                    case "IdEmployee":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderBy(i => i.IdEmployee);
+                        break;
+                    case "IdClient":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderBy(i => i.IdClient);
+                        break;
+
+                    default: 
+                        break;
+                }
+            }
+            if (CBOrderBy.SelectedIndex == 1)
+            {
+                switch (item.Name)
+                {
+                    case "IdOrder":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderByDescending(i => i.ID);
+                        break;
+                    case "FullPrice":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderByDescending(i => i.FullPrice);
+                        break;
+                    case "Quantity":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderByDescending(i => i.Quantity);
+                        break;
+                    case "Date":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderByDescending(i => i.Date);
+                        break;
+                    case "IdEmployee":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderByDescending(i => i.IdEmployee);
+                        break;
+                    case "IdClient":
+                        LVOrder.ItemsSource = context.OrderStatic.ToList().OrderByDescending(i => i.IdClient);
+                        break;
+
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void OrderBy_Selected(object sender, RoutedEventArgs e)
+        {
+            CBSerch.SelectedIndex = 0;
         }
     }
 }
