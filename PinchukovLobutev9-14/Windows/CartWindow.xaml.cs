@@ -36,6 +36,13 @@ namespace PinchukovLobutev9_14.Windows
 
             LvCartProductList.ItemsSource = products;
 
+            decimal price = 0;
+            foreach (var item in products)
+            {
+                price += item.Price * item.Quantity;
+               
+            }
+            TBPrice.Text = price.ToString();
         }
 
         private void BtnRemoveToCart_Click(object sender, RoutedEventArgs e)
@@ -86,27 +93,35 @@ namespace PinchukovLobutev9_14.Windows
 
         private void BtnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-            Db.Sale sale = new Db.Sale();
-            sale.IdEmployee = (int)ClassHelper.AuthorizationDataClass.authorization.IdEmployee;
-            sale.IdClient = 1;
-            sale.Date = DateTime.Now;
-            if (sale != null)
+            ObservableCollection<Db.Product> products = new ObservableCollection<Db.Product>(ClassHelper.Cart.Products);
+            if (products.Count() == 0)
             {
-                ClassHelper.EFClass.context.Sale.Add(sale);
-                ClassHelper.EFClass.context.SaveChanges();
+                MessageBox.Show("Корзина пуста");
             }
-
-
-            foreach (var item in ClassHelper.Cart.Products)
-            {
-                Db.SaleProduct saleProduct = new Db.SaleProduct();
-                saleProduct.IdProduct = item.ID;
-                saleProduct.Quantity = item.Quantity;
-                saleProduct.IdSale = ClassHelper.EFClass.context.Sale.ToList().LastOrDefault().ID;
-                ClassHelper.EFClass.context.SaleProduct.Add(saleProduct);
-                ClassHelper.EFClass.context.SaveChanges();
+            else {    
+                Db.Sale sale = new Db.Sale();
+                sale.IdEmployee = (int)ClassHelper.AuthorizationDataClass.authorization.IdEmployee;
+                sale.IdClient = 1;
+                sale.Date = DateTime.Now;
+                if (sale != null)
+                {
+                    ClassHelper.EFClass.context.Sale.Add(sale);
+                    ClassHelper.EFClass.context.SaveChanges();
+                }
+    
+    
+                foreach (var item in ClassHelper.Cart.Products)
+                {
+                    Db.SaleProduct saleProduct = new Db.SaleProduct();
+                    saleProduct.IdProduct = item.ID;
+                    saleProduct.Quantity = item.Quantity;
+                    saleProduct.IdSale = ClassHelper.EFClass.context.Sale.ToList().LastOrDefault().ID;
+                    ClassHelper.EFClass.context.SaleProduct.Add(saleProduct);
+                    ClassHelper.EFClass.context.SaveChanges();
+                }
+                ClassHelper.Cart.Products = new ObservableCollection<Db.Product>();
+                MessageBox.Show("Продукты успешно добавлены");
             }
-            MessageBox.Show("Продукты успешно добавлены");
             Close();
         }
     }
