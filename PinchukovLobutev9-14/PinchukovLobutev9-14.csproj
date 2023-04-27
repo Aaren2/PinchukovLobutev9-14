@@ -95,6 +95,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Db\OrderStatic.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Db\Product.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

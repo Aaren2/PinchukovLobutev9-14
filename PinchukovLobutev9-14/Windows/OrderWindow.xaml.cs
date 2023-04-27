@@ -42,11 +42,11 @@ namespace PinchukovLobutev9_14.Windows
         }
         private void GetProduct()
         {
-            List<SaleProduct> OrderList = new List<SaleProduct>();
+            List<OrderStatic> OrderStatic = new List<OrderStatic>();
 
-            OrderList = context.SaleProduct.ToList();
+            OrderStatic = context.OrderStatic.ToList();
 
-            LVOrder.ItemsSource = OrderList;
+            LVOrder.ItemsSource = OrderStatic;
         }
 
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)

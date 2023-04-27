@@ -14,6 +14,11 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Заказ" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20"/>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox x:Name="TBDateStar"/>
+            <TextBox x:Name="TBDateEnd"/>
+            <Button x:Name="BTNSerch"/>
+        </WrapPanel>
         <ListView x:Name="LVOrder" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -27,31 +32,31 @@
                             BorderThickness="1"
                             Margin="5"
                             Width="165"
-                            Height="280">
+                            Height="320">
                         <StackPanel>
                             <Image Height="140"
                                    Width="165"
                                    Stretch="Fill">
                                 <Image.Source>
-                                    <Binding Path="Product.ImageProduct">
+                                    <Binding Path="ImageProduct">
                                         <Binding.TargetNullValue>
                                             <ImageSource>\Res\defaultImage.png</ImageSource>
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
                             </Image>
-                            <TextBlock Text="{Binding Product.NameOfProduct}"
+                            <TextBlock Text="{Binding NameOfProduct}"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 0 0"
                                        TextWrapping="Wrap" />
-                            <TextBlock Text="{Binding Sale.ID}"
+                            <TextBlock Text="{Binding ID}"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 0 0"
                                        TextWrapping="Wrap" />
 
-                            <TextBlock Text="{Binding Product.Price}"
+                            <TextBlock Text="{Binding FullPrice}"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 0 0"/>
@@ -61,12 +66,12 @@
                                        FontWeight="Bold"
                                        Margin="10 0 10 0"
                                        TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding Sale.IdEmployee}"
+                            <TextBlock Text="{Binding IdEmployee}"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 10 0"
                                        TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding Sale.IdClient}"
+                            <TextBlock Text="{Binding IdClient}"
                                        FontSize="18"
                                        FontWeight="Bold"
                                        Margin="10 0 10 0"

@@ -36,6 +36,7 @@ namespace PinchukovLobutev9_14.Db
         public virtual DbSet<Sale> Sale { get; set; }
         public virtual DbSet<SaleProduct> SaleProduct { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<OrderStatic> OrderStatic { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

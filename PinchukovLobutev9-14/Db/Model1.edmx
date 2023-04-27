@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Coffe3914Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище Coffe3914Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authorization">
           <Key>
             <PropertyRef Name="ID" />
@@ -72,7 +72,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IdClient" Type="int" Nullable="false" />
           <Property Name="IdEmployee" Type="int" Nullable="false" />
-          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="SaleProduct">
           <Key>
@@ -92,6 +92,28 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Coffe3914.dbo.OrderStatic" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="OrderStatic">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IdClient" />
+            <PropertyRef Name="IdEmployee" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="NameOfProduct" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="IdClient" Type="int" Nullable="false" />
+          <Property Name="IdEmployee" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="NameOfProduct" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImageProduct" Type="varbinary(max)" />
+          <Property Name="Quantity" Type="smallint" Nullable="false" />
+          <Property Name="FullPrice" Type="decimal" Precision="16" Scale="2" />
+          <Property Name="Price" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <Association Name="FK_Authorization_Client1">
           <End Role="Client1" Type="Self.Client1" Multiplicity="0..1" />
@@ -242,6 +264,19 @@
           <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SaleProduct" EntityType="Self.SaleProduct" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatic" EntityType="Self.OrderStatic" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [OrderStatic].[ID] AS [ID], 
+    [OrderStatic].[IdClient] AS [IdClient], 
+    [OrderStatic].[IdEmployee] AS [IdEmployee], 
+    [OrderStatic].[Date] AS [Date], 
+    [OrderStatic].[NameOfProduct] AS [NameOfProduct], 
+    [OrderStatic].[ImageProduct] AS [ImageProduct], 
+    [OrderStatic].[Quantity] AS [Quantity], 
+    [OrderStatic].[FullPrice] AS [FullPrice], 
+    [OrderStatic].[Price] AS [Price]
+    FROM [dbo].[OrderStatic] AS [OrderStatic]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Authorization_Client1" Association="Self.FK_Authorization_Client1">
             <End Role="Client1" EntitySet="Client1" />
             <End Role="Authorization" EntitySet="Authorization" />
@@ -279,8 +314,7 @@
             <End Role="SaleProduct" EntitySet="SaleProduct" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Coffe3914Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -364,7 +398,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IdClient" Type="Int32" Nullable="false" />
           <Property Name="IdEmployee" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Client1" Relationship="Self.FK_Sale_Client1" FromRole="Sale" ToRole="Client1" />
           <NavigationProperty Name="Employee" Relationship="Self.FK_Sale_Employee" FromRole="Sale" ToRole="Employee" />
           <NavigationProperty Name="SaleProduct" Relationship="Self.FK_SaleProduct_Sale" FromRole="Sale" ToRole="SaleProduct" />
@@ -574,6 +608,7 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="OrderStatic" EntityType="Coffe3914Model.OrderStatic" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -586,6 +621,26 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
+        <EntityType Name="OrderStatic">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="IdClient" />
+            <PropertyRef Name="IdEmployee" />
+            <PropertyRef Name="Date" />
+            <PropertyRef Name="NameOfProduct" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Price" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="IdClient" Type="Int32" Nullable="false" />
+          <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NameOfProduct" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImageProduct" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Quantity" Type="Int16" Nullable="false" />
+          <Property Name="FullPrice" Type="Decimal" Precision="16" Scale="2" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -713,6 +768,21 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Coffe3914Model.sp_renamediagram" />
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Coffe3914Model.sp_upgraddiagrams" />
+          <EntitySetMapping Name="OrderStatic">
+            <EntityTypeMapping TypeName="Coffe3914Model.OrderStatic">
+              <MappingFragment StoreEntitySet="OrderStatic">
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="FullPrice" ColumnName="FullPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ImageProduct" ColumnName="ImageProduct" />
+                <ScalarProperty Name="NameOfProduct" ColumnName="NameOfProduct" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
+                <ScalarProperty Name="IdClient" ColumnName="IdClient" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
