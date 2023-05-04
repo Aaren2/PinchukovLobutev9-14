@@ -36,13 +36,29 @@ namespace PinchukovLobutev9_14.Windows
 
             LvCartProductList.ItemsSource = products;
 
+            Price(products);
+        }
+
+        private void Price(ObservableCollection<Product> products) {
             decimal price = 0;
             foreach (var item in products)
             {
                 price += item.Price * item.Quantity;
-               
+
             }
-            TBPrice.Text = price.ToString();
+            //DateTime dateTime = new DateTime(2023,5,25); Проверка работоспособности 
+            DateTime dateTime = DateTime.Now;
+            if (dateTime.DayOfWeek+"" == "Thursday") {
+                
+                for (int i = 22; i < 28; i++) {
+                    if (i == dateTime.Day) {
+                        price = price - (price * (decimal)0.04);
+                    }
+                }                
+            }
+            price = Math.Round(price, 2);
+            TBPrice.Text = price.ToString();           
+            
         }
 
         private void BtnRemoveToCart_Click(object sender, RoutedEventArgs e)

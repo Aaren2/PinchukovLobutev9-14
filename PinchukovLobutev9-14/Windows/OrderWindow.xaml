@@ -28,7 +28,7 @@
             </ComboBox>
             <ComboBox x:Name="CBOrderBy" >
                 <ComboBoxItem x:Name="Max" Content="->" Selected="OrderBy_Selected" />
-                <ComboBoxItem x:Name="Min" Content="&lt;-" />
+                <ComboBoxItem x:Name="Min" Content="&lt;-" Selected="OrderBy_Selected"/>
             </ComboBox>
         </WrapPanel>
         <ListView x:Name="LVOrder" Grid.Row="2" d:ItemsSource="{d:SampleData ItemCount=50}" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
