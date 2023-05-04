@@ -46,7 +46,7 @@ namespace PinchukovLobutev9_14.Windows
                 price += item.Price * item.Quantity;
 
             }
-            //DateTime dateTime = new DateTime(2023,5,25); Проверка работоспособности 
+            //DateTime dateTime = new DateTime(2023,5,25); //Проверка работоспособности 
             DateTime dateTime = DateTime.Now;
             if (dateTime.DayOfWeek+"" == "Thursday") {
                 
