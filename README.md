@@ -40,3 +40,10 @@
 ![image](https://user-images.githubusercontent.com/114148739/234867688-77e3f366-d286-4b98-8a72-900f33ec20ca.png)
 ![image](https://user-images.githubusercontent.com/114148739/234867692-fa794a7e-b050-4a6f-b2fd-b7a0d95a3da4.png)
 ![image](https://user-images.githubusercontent.com/114148739/234867696-73def325-7d41-410d-af6e-8c09503d6746.png)
+<b>Скидка на каждый четвертый четверг</b>
+![image](https://user-images.githubusercontent.com/114148739/236196770-9669171a-3940-4962-ab91-a3d23121c52a.png)
+![image](https://user-images.githubusercontent.com/114148739/236196773-60754b73-c359-446a-b973-72e518b7eaa5.png)
+![image](https://user-images.githubusercontent.com/114148739/236196782-9c834875-78c2-4fed-a8c1-9e671dffe122.png)
+![image](https://user-images.githubusercontent.com/114148739/236196788-6ba7faf5-4a52-4be2-a276-cc382ec03c16.png)
+![image](https://user-images.githubusercontent.com/114148739/236196795-eadca012-c243-4fa2-980b-c01841b8b6d7.png)
+
