@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PinchukovLobutev9_14.ClassHelper
 {
-    internal class Cart
+    public class Cart
     {
 
         public static ObservableCollection<Db.Product> Products { get; set; } = new ObservableCollection<Db.Product>();

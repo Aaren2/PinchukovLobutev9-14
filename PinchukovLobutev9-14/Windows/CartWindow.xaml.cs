@@ -46,13 +46,13 @@ namespace PinchukovLobutev9_14.Windows
                 price += item.Price * item.Quantity;
 
             }
-            //DateTime dateTime = new DateTime(2023,5,25); //Проверка работоспособности 
-            DateTime dateTime = DateTime.Now;
+            DateTime dateTime = new DateTime(2023,5,25); //Проверка работоспособности 
+            //DateTime dateTime = DateTime.Now;
             if (dateTime.DayOfWeek+"" == "Thursday") {
                 
                 for (int i = 22; i < 28; i++) {
                     if (i == dateTime.Day) {
-                        price = price - (price * (decimal)0.04);
+                        price = ClassHelper.MyDiscount.Discount(price,(decimal)0.04);
                     }
                 }                
             }
@@ -60,6 +60,7 @@ namespace PinchukovLobutev9_14.Windows
             TBPrice.Text = price.ToString();           
             
         }
+        
 
         private void BtnRemoveToCart_Click(object sender, RoutedEventArgs e)
         {
